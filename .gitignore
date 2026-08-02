@@ -1,0 +1,12 @@
+# Compiled class output directory (not needed when using IntelliJ IDEA)
+out/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
