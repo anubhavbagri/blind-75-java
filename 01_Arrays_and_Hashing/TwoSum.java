@@ -4,8 +4,7 @@ import java.util.*;
 
 /**
  * Time Complexity:  O(n)
- * Space Complexity: O(1)
- * The auxiliary array has a fixed size (26), independent of the input size n. Constant-sized memory is expressed as O(1).
+ * Space Complexity: O(n)
  */
 public class TwoSum {
 
