@@ -4,16 +4,16 @@ import java.util.*;
 
 /**
  * Time Complexity: O(n * n)
- * Space Complexity: O(n)
+ * Space Complexity: O(1)
  */
 public class ThreeSum {
 
     public static List<List<Integer>> threeSum(int[] arr) {
         Arrays.sort(arr);
-        Set<List<Integer>> set = new HashSet<>();
         List<List<Integer>> res = new ArrayList<>();
         int n = arr.length;
         for (int i = 0; i < n; i++) {
+            if(i > 0 && arr[i] == arr[i-1]) continue;
             int j = i + 1;
             int k = n - 1;
             while (j < k) {
@@ -23,15 +23,15 @@ public class ThreeSum {
                 } else if (s > 0) { // sum is too large
                     k--;    // moving k left makes the 3rd number smaller
                 } else {
-                    set.add(new ArrayList<>(List.of(arr[i], arr[j], arr[k])));
+                    res.add(new ArrayList<>(List.of(arr[i], arr[j], arr[k])));
                     j++;
                     k--;
+                    while(j < n && arr[j] == arr[j-1])  j++;
+                    while(k > 0 && arr[k] == arr[k+1])  k--;
                 }
             }
         }
-        for (var e : set) {
-            res.add(e);
-        }
+
         return res;
     }
 
