@@ -1,6 +1,4 @@
-package Arrays_and_Hashing;
-
-import java.util.*;
+package Two_Pointers;
 
 /**
  * Time Complexity:  O(n)

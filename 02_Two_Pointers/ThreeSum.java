@@ -1,4 +1,4 @@
-package Arrays_and_Hashing;
+package Two_Pointers;
 
 import java.util.*;
 
