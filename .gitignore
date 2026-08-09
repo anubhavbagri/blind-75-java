@@ -1,5 +1,6 @@
 # Compiled class output directory (not needed when using IntelliJ IDEA)
 out/
+.vscode/
 
 # IntelliJ IDEA project files
 .idea/
