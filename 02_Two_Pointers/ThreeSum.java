@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class ThreeSum {
 
-    public static List<List<Integer>> threeSum(int[] arr) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
         List<List<Integer>> res = new ArrayList<>();
