@@ -9,29 +9,32 @@ import java.util.*;
 public class ThreeSum {
 
     public static List<List<Integer>> threeSum(int[] arr) {
-        Arrays.sort(arr);
+        Arrays.sort(nums);
+        int n = nums.length;
         List<List<Integer>> res = new ArrayList<>();
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            if(i > 0 && arr[i] == arr[i-1]) continue;
-            int j = i + 1;
-            int k = n - 1;
-            while (j < k) {
-                int s = arr[i] + arr[j] + arr[k];
-                if (s < 0) { // sum is too small
-                    j++;    // moving j right makes the 2nd number larger
-                } else if (s > 0) { // sum is too large
-                    k--;    // moving k left makes the 3rd number smaller
+        for(int i = 0; i < n; i++){
+            if(i > 0 && nums[i] == nums[i-1])   continue;
+            int left = i+1;
+            int right = n-1;
+            while(left < right){
+                int sum = nums[i] + nums[left] + nums[right];
+                if(sum < 0){    // sum is too small
+                    left++;     // moving j right makes the 2nd number larger
+                } else if (sum > 0){    // sum is too large
+                    right--;    // moving k left makes the 3rd number smaller
                 } else {
-                    res.add(new ArrayList<>(List.of(arr[i], arr[j], arr[k])));
-                    j++;
-                    k--;
-                    while(j < n && arr[j] == arr[j-1])  j++;
-                    while(k > 0 && arr[k] == arr[k+1])  k--;
+                    res.add(
+                        new ArrayList<>(List.of(nums[i], nums[left], nums[right]))
+                    );
+                    left++;
+                    right--;
+                    while(left < n && nums[left] == nums[left-1])
+                        left++;
+                    while(right > 0 && nums[right] == nums[right+1])
+                        right--;
                 }
             }
         }
-
         return res;
     }
 
