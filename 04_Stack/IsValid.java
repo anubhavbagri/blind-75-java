@@ -1,4 +1,6 @@
-import java.util.Stack;
+package Stack;
+
+import java.util.*;
 
 public class IsValid {
     public static boolean isValid(String s) {
@@ -7,13 +9,14 @@ public class IsValid {
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
 
-            if (!st.isEmpty() && ((ch == ')' && st.peek() == '(') || (ch == '}' && st.peek() == '{')
-                    || (ch == ']' && st.peek() == '['))) {
-                st.pop();
-            } else
-                st.push(ch);
+            if (ch == '(' || ch == '{' || ch == '[') st.push(ch);
+            else {
+                if(st.isEmpty())    return false;
+                char top = st.pop();
+                if (!((ch == ')' && top == '(') || (ch == '}' && top == '{')
+                        || (ch == ']' && top == '['))) return false;
+            }
         }
-
         return st.isEmpty();
     }
 
