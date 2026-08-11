@@ -2,6 +2,11 @@ package Stack;
 
 import java.util.*;
 
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ */
+
 public class IsValid {
     public static boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
@@ -11,7 +16,7 @@ public class IsValid {
 
             if (ch == '(' || ch == '{' || ch == '[') st.push(ch);
             else {
-                if(st.isEmpty())    return false;
+                if (st.isEmpty()) return false;
                 char top = st.pop();
                 if (!((ch == ')' && top == '(') || (ch == '}' && top == '{')
                         || (ch == ']' && top == '['))) return false;
