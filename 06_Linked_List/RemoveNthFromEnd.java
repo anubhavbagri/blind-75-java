@@ -9,22 +9,19 @@ import Linked_List.ListNode;
 
 public class RemoveNthFromEnd {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode prev = head;
+        ListNode fast = head;
 
-        int len = 0;
-        ListNode temp = head;
-        while (temp != null) {
-            len++;
-            temp = temp.next;
+        for(int i = 0; i < n; i++){
+            fast = fast.next;
         }
 
-        if (len == n) return head.next;
+        // n is equal to length of the list
+        if(fast == null)    return head.next;
 
-        // find predecessor
-        int i = 1;
-        ListNode prev = head;
-        while (i < (len - n)) {
+        while(fast.next != null){
+            fast = fast.next;
             prev = prev.next;
-            i++;
         }
 
         // remove node
