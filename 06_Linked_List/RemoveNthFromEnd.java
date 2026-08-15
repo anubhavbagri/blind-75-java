@@ -12,14 +12,14 @@ public class RemoveNthFromEnd {
         ListNode prev = head;
         ListNode fast = head;
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
 
         // n is equal to length of the list
-        if(fast == null)    return head.next;
+        if (fast == null) return head.next;
 
-        while(fast.next != null){
+        while (fast.next != null) {
             fast = fast.next;
             prev = prev.next;
         }

@@ -8,22 +8,24 @@ package Arrays_and_Hashing;
 public class ValidAnagram {
 
     public static boolean validAnagram(String s, String t) {
-        if(s.length() != t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
         int[] freq = new int[26];
-        for(char ch: s.toCharArray())   freq[ch-'a']++;
+        for (char ch : s.toCharArray()) freq[ch - 'a']++;
 
-        for(char ch: t.toCharArray()){
-            if(freq[ch-'a'] <= 0){
+        for (char ch : t.toCharArray()) {
+            if (freq[ch - 'a'] <= 0) {
                 return false;
             }
-            freq[ch-'a']--;
+            freq[ch - 'a']--;
         }
         return true;
     }
 
-    public static void main(String[] args) { run(); }
+    public static void main(String[] args) {
+        run();
+    }
 
     public static void run() {
         String s = "ab"; // "ab"

@@ -9,30 +9,31 @@ import java.util.*;
 
 public class EncodeDecode {
 
-    public static String encode(List<String> strs){
+    public static String encode(List<String> strs) {
         StringBuilder sb = new StringBuilder();
 
-        for(String s : strs){
+        for (String s : strs) {
             sb.append(s.length()).append('#').append(s);
         }
 
 //        System.out.println(sb.toString());
         return sb.toString();
     }
-    public static List<String> decode(String str){
+
+    public static List<String> decode(String str) {
         List<String> list = new ArrayList<>();
 
         int t = 0;
         int len = 0;
         int i = 0;
 
-        while(i < str.length()){
+        while (i < str.length()) {
             char ch = str.charAt(i);
-            if(ch == '#'){
+            if (ch == '#') {
                 len = Integer.parseInt(str.substring(t, i));
-                t = i+1;
-                list.add(str.substring(t, t+len));
-                i = t+len;
+                t = i + 1;
+                list.add(str.substring(t, t + len));
+                i = t + len;
                 t = i;
             } else {
                 i++;

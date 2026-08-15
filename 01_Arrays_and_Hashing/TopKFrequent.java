@@ -28,12 +28,12 @@ public class TopKFrequent {
 
         // min heap based on freq
         PriorityQueue<Pair> pq = new PriorityQueue<>((p1, p2) -> Integer.compare(p1.freq, p2.freq));
-        for(var e : map.entrySet()){
+        for (var e : map.entrySet()) {
             pq.offer(new Pair(e.getKey(), e.getValue()));
-            if(pq.size() > k)   pq.poll();
+            if (pq.size() > k) pq.poll();
         }
         int x = 0;
-        while(pq.size() > 0){
+        while (pq.size() > 0) {
             res[x++] = pq.poll().key;
         }
         return res;
