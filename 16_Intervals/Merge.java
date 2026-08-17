@@ -3,7 +3,8 @@ package Intervals;
 import java.util.*;
 
 /**
- * Time Complexity:  O(n)
+ * sorting the array based on start
+ * Time Complexity:  O(n log n)
  * Space Complexity: O(1)
  */
 public class Merge {
