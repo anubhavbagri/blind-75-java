@@ -30,7 +30,7 @@ public class MinWindow {
 
             while (satisfied == mapT.size()) {
 
-                if((end - start + 1) <= minL){
+                if ((end - start + 1) <= minL) {
                     minL = end - start + 1;
                     res = s.substring(start, end + 1);
                 }

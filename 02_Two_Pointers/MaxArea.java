@@ -13,7 +13,7 @@ public class MaxArea {
         while (l < r) {
             int water = Math.min(h[l], h[r]) * (r - l);
             maxWater = Math.max(maxWater, water);
-            if(h[l] < h[r]) l++;
+            if (h[l] < h[r]) l++;
             else r--;
         }
         return maxWater;

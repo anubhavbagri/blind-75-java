@@ -12,12 +12,12 @@ public class CharacterReplacement {
         int maxL = 0;
         int maxFreq = 0;
         int start = 0;
-        for(int end = 0; end < s.length(); end++){
+        for (int end = 0; end < s.length(); end++) {
             char rightCh = s.charAt(end);
             freq[rightCh - 'A']++;
 
             maxFreq = Math.max(maxFreq, freq[rightCh - 'A']);
-            while(((end - start + 1) - maxFreq) > k){
+            while (((end - start + 1) - maxFreq) > k) {
                 char leftCh = s.charAt(start);
                 freq[leftCh - 'A']--;
                 start++;
