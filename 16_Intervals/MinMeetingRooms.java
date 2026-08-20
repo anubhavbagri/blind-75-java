@@ -3,29 +3,23 @@ package Intervals;
 import java.util.*;
 
 /**
- * Two-pointer approach (Line sweep)
+ * Heap-based approach
  * Time Complexity:  O(n log n)
  * Space Complexity: O(1)
  */
 public class MinMeetingRooms {
 
     public static int minMeetingRooms(int[] start, int[] end) {
-        int n = start.length;
-        int i = 0, j = 0;
-        int activeRooms = 0, maxActive = 0;
         Arrays.sort(start);
         Arrays.sort(end);
-        while (i < n && j < n) {
-            if (start[i] < end[j]) {
-                activeRooms++;
-                i++;
-            } else {
-                activeRooms--;
-                j++;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i = 0; i < start.length; i++) {
+            if (!pq.isEmpty() && pq.peek() <= start[i]) {
+                pq.poll();
             }
-            maxActive = Math.max(maxActive, activeRooms);
+            pq.offer(end[i]);
         }
-        return maxActive;
+        return pq.size();
     }
 
     public static void main(String[] args) {
