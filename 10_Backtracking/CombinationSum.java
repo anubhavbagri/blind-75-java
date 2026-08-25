@@ -3,8 +3,9 @@ package Backtracking;
 import java.util.*;
 
 /**
- *
- * Space Complexity: O(1)
+ * Time complexity: Exponential O(2 ^ t) * k
+ * where t = target, k = average length of candidates array
+ * Space Complexity: Dependent on the number of combinations
  */
 public class CombinationSum {
     static List<List<Integer>> res = new ArrayList<>();
