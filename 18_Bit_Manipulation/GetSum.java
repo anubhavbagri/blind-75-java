@@ -9,7 +9,7 @@ public class GetSum {
     public static int getSum(int a, int b) {
         int partialSum = a ^ b;
         int carry = (a & b) << 1;
-        while(carry != 0){
+        while (carry != 0) {
             int newSum = partialSum ^ carry;
             int newCarry = (partialSum & carry) << 1;
             partialSum = newSum;

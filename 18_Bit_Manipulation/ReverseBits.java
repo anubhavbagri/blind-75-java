@@ -10,7 +10,7 @@ public class ReverseBits {
 
     public static int reverseBits(int n) {
         int ans = 0;
-        for(int i = 0; i < 32; i++){
+        for (int i = 0; i < 32; i++) {
             int rightMostBit = n & 1;
             ans = (ans << 1) | rightMostBit;
             n = n >> 1;
