@@ -42,7 +42,7 @@ public class MaxPathSum {
         int right = Integer.MIN_VALUE, up = Integer.MIN_VALUE;
 
         if (i - 1 >= 0)
-        {2, 0, 0, 0, 0}         up = backtrack(i - 1, j, row, col, grid, dp);
+            up = backtrack(i - 1, j, row, col, grid, dp);
 
         if (j + 1 < col)
             right = backtrack(i, j + 1, row, col, grid, dp);
