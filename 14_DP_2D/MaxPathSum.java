@@ -15,6 +15,8 @@ The total for this example would be 10 (2+0+1+1+1+0+5).
  */
 package DP_2D;
 
+import java.util.Arrays;
+
 /**
  * Time Complexity: exponential
  * Space Complexity:
@@ -24,21 +26,28 @@ public class MaxPathSum {
     public static int maxPathSum(int[][] grid) {
         int row = grid.length;
         int col = grid[0].length;
-        return backtrack(row - 1, 0, row, col, grid);
+        int[][] dp = new int[row][col];
+        for(int[] d : dp){
+            Arrays.fill(d, -1);
+        }
+        return backtrack(row - 1, 0, row, col, grid, dp);
     }
 
-    private static int backtrack(int i, int j, int row, int col, int[][] grid) {
+    private static int backtrack(int i, int j, int row, int col, int[][] grid, int[][] dp) {
         if (i == 0 && j == col - 1) return grid[i][j];
+
+        if(dp[i][j] != -1)
+            return dp[i][j];
 
         int right = Integer.MIN_VALUE, up = Integer.MIN_VALUE;
 
         if (i - 1 >= 0)
-            up = backtrack(i - 1, j, row, col, grid);
+        {2, 0, 0, 0, 0}         up = backtrack(i - 1, j, row, col, grid, dp);
 
         if (j + 1 < col)
-            right = backtrack(i, j + 1, row, col, grid);
+            right = backtrack(i, j + 1, row, col, grid, dp);
 
-        return grid[i][j] + Math.max(up, right);
+        return dp[i][j] = grid[i][j] + Math.max(up, right);
     }
 
     public static void main(String[] args) {
