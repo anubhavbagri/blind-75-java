@@ -27,7 +27,7 @@ public class MaxPathSum {
         int row = grid.length;
         int col = grid[0].length;
         int[][] dp = new int[row][col];
-        for(int[] d : dp){
+        for (int[] d : dp) {
             Arrays.fill(d, -1);
         }
         return backtrack(row - 1, 0, row, col, grid, dp);
@@ -36,7 +36,7 @@ public class MaxPathSum {
     private static int backtrack(int i, int j, int row, int col, int[][] grid, int[][] dp) {
         if (i == 0 && j == col - 1) return grid[i][j];
 
-        if(dp[i][j] != -1)
+        if (dp[i][j] != -1)
             return dp[i][j];
 
         int right = Integer.MIN_VALUE, up = Integer.MIN_VALUE;
