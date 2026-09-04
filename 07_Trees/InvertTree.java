@@ -11,14 +11,19 @@ import Trees.TreeNode;
 
 public class InvertTree {
     public static TreeNode invertTree(TreeNode root) {
+        // base case
         if (root == null) return null;
 
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
+        // invert its subtrees
+        invertTree(root.left);
+        invertTree(root.right);
 
-        root.left = right;
-        root.right = left;
+        // swapping at the current node
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
 
+        // need to return to the caller
         return root;
     }
 
