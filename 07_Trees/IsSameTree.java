@@ -3,8 +3,8 @@ package Trees;
 import Trees.TreeNode;
 
 /**
- * Time Complexity: O(n)
- * Space Complexity: O(n)
+ * Time Complexity: O(min(m,n)) in worst case because we stop at first mismatch, or O(m+n) if both trees are identical
+ * Space Complexity: O(h) where h = height of the tree, balanced tree = O(log n), skewed tree = O(n)
  */
 
 public class IsSameTree {
@@ -15,10 +15,7 @@ public class IsSameTree {
 
         if (p.val != q.val) return false;
 
-        boolean left_match = isSameTree(p.left, q.left);
-        boolean right_match = isSameTree(p.right, q.right);
-
-        return left_match && right_match;
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 
     public static void main(String[] args) {
