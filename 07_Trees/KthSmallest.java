@@ -5,8 +5,8 @@ import Trees.TreeNode;
 import java.util.*;
 
 /**
- * Time Complexity:
- * Space Complexity:
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
  */
 
 public class KthSmallest {
