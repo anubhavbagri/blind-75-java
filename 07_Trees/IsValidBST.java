@@ -2,29 +2,26 @@ package Trees;
 
 import Trees.TreeNode;
 
-import java.util.*;
-
 /**
- * Time Complexity: O(2n)
- * Space Complexity: O(n)
+ * Time Complexity: O(n)
+ * Space Complexity: O(1), auxiliary recursive stack space: O(n)
  */
 
 public class IsValidBST {
     public static boolean isValidBST(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        inorder(root, list);
-        for (int i = 1; i < list.size(); i++) {
-            if (list.get(i - 1) >= list.get(i)) return false;
-        }
-        return true;
+        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private static void inorder(TreeNode root, List<Integer> list) {
-        if (root == null) return;
+    private static boolean validate(TreeNode root, long lowerBound, long upperBound) {
+        if (root == null) return true;
 
-        inorder(root.left, list);
-        list.add(root.val);
-        inorder(root.right, list);
+        if(root.val <= lowerBound || root.val >= upperBound)    return false;
+
+        boolean left = validate(root, lowerBound, root.val);
+
+        boolean right = validate(root, root.val, upperBound);
+
+        return left && right;
     }
 
     public static void main(String[] args) {
