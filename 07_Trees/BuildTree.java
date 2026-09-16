@@ -43,13 +43,20 @@ public class BuildTree {
     private static List<Integer> levelOrder(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
-        for (q.offer(root); !q.isEmpty(); ) {
+        q.offer(root);
+        while (!q.isEmpty()) {
             TreeNode n = q.poll();
-            res.add(n.val);
-            if (n.left != null) q.offer(n.left);
-            if (n.right != null) q.offer(n.right);
+            if (n == null) {
+                res.add(null);
+            } else {
+                res.add(n.val);
+                q.offer(n.left);   // enqueue even if null
+                q.offer(n.right);  // enqueue even if null
+            }
         }
-        return res;
+        int i = res.size() - 1;
+        while (i >= 0 && res.get(i) == null) i--;
+        return res.subList(0, i + 1);
     }
 
     public static void run() {
