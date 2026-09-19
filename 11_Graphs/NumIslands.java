@@ -3,8 +3,10 @@ package Graphs;
 import java.util.*;
 
 /**
- * Time Complexity:
- * Space Complexity:
+ * Time Complexity: Amortized Analysis: O(m * n)
+ * traversing all cells once + visiting each cell once
+ * Space Complexity: O(m × n) + O(m × n) = O(m × n)
+ * Visited array: O(m × n), BFS Queue: O(m × n) worst case
  */
 
 public class NumIslands {
