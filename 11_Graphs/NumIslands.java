@@ -26,6 +26,17 @@ public class NumIslands {
         return cnt;
     }
 
+    public static void dfs(int i, int j, char[][] grid, boolean[][] vis, int m, int n) {
+        if (i < 0 || i >= m || j < 0 || j >= n || vis[i][j] || grid[i][j] == '0') return;
+
+        vis[i][j] = true;
+
+        dfs(i + 1, j, grid, vis, m, n);
+        dfs(i - 1, j, grid, vis, m, n);
+        dfs(i, j + 1, grid, vis, m, n);
+        dfs(i, j - 1, grid, vis, m, n);
+    }
+
     public static void bfs(int i, int j, char[][] grid, boolean[][] vis, int m, int n) {
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{i, j});
@@ -53,7 +64,7 @@ public class NumIslands {
     }
 
     public static void run() {
-        char[][] grid = {{'1','1','0','0','0'}, {'1','1','0','0','0'}, {'0','0','1','0','0'}, {'0','0','0','1','1'}};    
+        char[][] grid = {{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
         System.out.println("Output: " + numIslands(grid));
     }
 }
