@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ValidTree {
     public static boolean validTree(int n, int[][] edges) {
-        // condition 1: correct no. of edges
+
         if (edges.length != n - 1) return false;
 
         List<List<Integer>> adj = new ArrayList<>();
@@ -22,31 +22,15 @@ public class ValidTree {
         }
 
         boolean vis[] = new boolean[n];
-        int noc = 0;
+
+        if (checkDFS(0, -1, adj, vis)) {
+            return false;
+        }
+
         for (int i = 0; i < n; i++) {
-            if (!vis[i]) {
-                noc++;
-                dfs(i, adj, vis);
-            }
+            if (!vis[i]) return false;
         }
-
-        // Condition 2: all nodes connected & Condition 3: no cycles
-        return (noc == 1) && !(isCycle(n, adj));
-    }
-
-    private static void dfs(int i, List<List<Integer>> adj, boolean[] vis) {
-        vis[i] = true;
-        for (int v : adj.get(i)) {
-            if (!vis[v]) dfs(v, adj, vis);
-        }
-    }
-
-    public static boolean isCycle(int n, List<List<Integer>> adj) {
-        boolean[] vis = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            if (!vis[i] && checkDFS(i, -1, adj, vis)) return true;
-        }
-        return false;
+        return true;
     }
 
     private static boolean checkDFS(int src, int parent, List<List<Integer>> adj, boolean[] vis) {
