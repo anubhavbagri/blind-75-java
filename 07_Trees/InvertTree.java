@@ -31,7 +31,7 @@ public class InvertTree {
         run();
     }
 
-    private static List<Integer> levelOrder(TreeNode root) {
+    public static List<Integer> levelOrder(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         for (q.offer(root); !q.isEmpty(); ) {

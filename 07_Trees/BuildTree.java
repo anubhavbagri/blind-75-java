@@ -40,7 +40,7 @@ public class BuildTree {
         run();
     }
 
-    private static List<Integer> levelOrder(TreeNode root) {
+    public static List<Integer> levelOrder(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
