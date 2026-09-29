@@ -7,8 +7,8 @@ import Trees.TreeNode;
 import static Trees.InvertTree.levelOrder;
 
 /**
- * T.C.
- * S.C.
+ * T.C: Serialize O(n), Deserialize O(n)
+ * S.C. O(n)
  */
 
 public class Codec {
